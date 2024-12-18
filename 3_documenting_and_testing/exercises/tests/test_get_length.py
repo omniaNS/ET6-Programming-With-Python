@@ -46,7 +46,6 @@ class TestGetLength(unittest.TestCase):
         """test non empty dictionary"""
         self.assertEqual(get_length({"brand": "Ford","model": "Mustang","year": 1964}), 3)
 
-    #Edge Cases
     def test_large_input(self):
         """test very long strings"""
         self.assertEqual(get_length('a' * 10**6), 10**6)

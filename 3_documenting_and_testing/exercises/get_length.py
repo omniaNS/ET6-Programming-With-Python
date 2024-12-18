@@ -1,40 +1,41 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-This module provides a function that finds the length of iterables
+This module provides a function that finds the length of iterables.
 
 Created on 2024-12-11
 Author: Omnia
 """
 
-def get_length(a):
+from typing import Any
+
+def get_length(iterable: Any) -> int:
     """
-    takes a string, a list, or a tuple and returns the number of items/characters in the iterable or None if empty
-    
+    Returns the length of the given iterable if it's non-empty, otherwise returns None.
+
     Parameters:
-        a: can be a string, a list, a tuple, or a dictionary
-        
+        iterable (Any): An iterable object such as a string, list, tuple, or dictionary.
+
     Returns:
-        int: The length of the iterable if not empty
-        None: if the iterable is empty
-    
+        int: Length of the iterable if it's not empty, otherwise None.
+
     Raises:
-        AssertionError: if input is not a string, a list, a tuple, or a dictionary
-    
+        AssertionError: If input is not an iterable.
+
     Examples:
-        >>> get_length([2,3,'i'])
+        >>> get_length([2, 3, 'i'])
         3
         >>> get_length('example')
         7
         >>> get_length(())
         None
     """
-    
-    #defensive assertions
-    #input should be an iterable type
-    assert hasattr(a,'__iter__')
-    
-    if len(a) == 0:
+    # Defensive assertion: Ensure the input is an iterable.
+    assert hasattr(iterable, '__iter__'), "Input must be an iterable"
+
+    # Check if the iterable is empty
+    if len(iterable) == 0:
         return None
     
-    return len(a)
+    # Return the length of the non-empty iterable
+    return len(iterable)
